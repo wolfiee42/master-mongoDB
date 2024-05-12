@@ -65,3 +65,31 @@ db.testing101.updateOne(
     }
 )
 ```
+
+#### 6. Add a new language "Spanish" to the list of languages spoken by the person.
+
+```
+db.testing101.updateOne(
+    { email: "gloveitt18@com.com" },
+    {
+        $addToSet: {
+            language: {
+                $each: ['Spanish']
+            }
+        }
+    }
+)
+```
+
+#### 7. Remove the skill with the name "Kotlin" from the skills array.
+
+```
+db.testing101.updateOne(
+    { _id: new ObjectId('6406ad64fc13ae5a40000071') },
+    {
+        $pull: {
+            skills: { name: 'KOTLIN' }
+        }
+    }
+)
+```
